@@ -37,4 +37,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto-update preview.png from logo.md"
-          file_pattern: preview.png
+          file_pattern: preview.png?

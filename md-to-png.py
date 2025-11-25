@@ -77,7 +77,7 @@ def render_png(emoji_grid, output_path):
 
 if __name__ == "__main__":
     md_file = "logo.md"        # ← input markdown table
-    output_png = "preview.png"    # ← output PNG file
+    output_png = "preview.png?"    # ← output PNG file
 
     grid = parse_markdown_pixel_table(md_file)
     render_png(grid, output_png)
