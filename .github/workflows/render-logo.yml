@@ -33,8 +33,46 @@ jobs:
         run: |
           python md-to-png.py
 
-      - name: Commit updated PNG
+      - name: Count pixels and generate summary
+        run: |
+          python count-pixels.py
+
+      - name: Update README with pixel summary
+        run: |
+          cat > update_readme.py << 'PY'
+          import re
+          
+          # Read the generated pixel summary
+          with open("pixel_summary.md", "r") as f:
+              summary = f.read()
+          
+          # Read the README
+          with open("README.md", "r") as f:
+              readme = f.read()
+          
+          # Create the new content block
+          new_section = (
+              "## The Logo Board\n\n"
+              "See the current progress here:\n"
+              "👉 [logo.md](logo.md)\n\n"
+              "and see the rendered preview here:\n\n"
+              "👉 ![Logo preview](preview.png)\n\n"
+              "### Color Pixel Summary\n\n"
+              f"{summary}"
+          )
+          
+          # Replace the Logo Board section with updated version
+          pattern = r'## The Logo Board.*?(?=\\n## Tip)'
+          readme_updated = re.sub(pattern, new_section, readme, flags=re.DOTALL)
+          
+          # Write back
+          with open("README.md", "w") as f:
+              f.write(readme_updated)
+          PY
+          python update_readme.py
+
+      - name: Commit updated PNG and README
         uses: stefanzweifel/git-auto-commit-action@v6
         with:
-          commit_message: "Auto-update preview.png from logo.md"
-          file_pattern: preview.png
+          commit_message: "Auto-update preview.png and README.md from logo.md"
+          file_pattern: "preview.png README.md"

@@ -25,16 +25,16 @@ Where (7, 12) are the horizontal, vertical coordinates of the pixel in the grid.
 
 ## The Logo Board
 
-See the current progress here:  
-👉 [logo.md](logo.md) (Markdown grid)  
+See the current progress here:
+👉 [logo.md](logo.md)
 
 and see the rendered preview here:
 
-👉 ![Logo preview](preview.png?)
+👉 ![Logo preview](preview.png)
 
 ## Tip
 
 If you’ve never used GitHub before:
 - You can edit the file **directly in your browser** — no coding tools needed.
 - The **“Preview”** tab shows what your pixel(s) will look like in the live logo before you commit.
-- Feel free to team up with colleagues and don't hesitate to ask the Open Source Booth staff for help!
+- Feel free to team up with colleagues and don't hesitate to ask the Open Source Competence Center staff for help!
