@@ -28,6 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pillow
+          pip install numpy
 
       - name: Render PNG from Markdown table
         run: |
